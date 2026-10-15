@@ -1,12 +1,12 @@
 /** @format */
 
 import React from "react";
-import Login from "./Components/Login";
+import Trajet from "./Components/Trajet";
 
 const App = () => {
   return (
     <div>
-      <Login />
+      <Trajet />
     </div>
   );
 };

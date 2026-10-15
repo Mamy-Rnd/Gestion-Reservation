@@ -1,8 +1,18 @@
 const AppService = require("../Services/trajet.service");
 
+const { validationResult } = require("express-validator");
+
 const AddTrajet = async (req, res, next) => {
+
     const { ville_départ, ville_arrivé, distance_km } = req.body;
 
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors: errors.array()
+        })
+    }
     try {
         const resultat = await AppService.AddTrajet(ville_départ, ville_arrivé, distance_km);
 
